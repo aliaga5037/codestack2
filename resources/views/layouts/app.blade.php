@@ -11,14 +11,16 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <link rel="stylesheet" href="/js/highlight.js/styles/default.css">
+        <link rel="stylesheet" href="/js/prism/prism.css">
         {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
         <script src="/assets/js/jquery.min.js"></script>
         <script src="/assets/js/main.js"></script>
 
-        <script src="/js/highlight.js/lib/highlight.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
+
+        <script src="/js/prism/prism.js"></script>
+
         <script src="/vendors/ckeditor/ckeditor/ckeditor.js"></script>
+
 
 
         
