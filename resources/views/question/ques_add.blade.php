@@ -30,6 +30,7 @@ editor.on( 'change', function( evt ) {
     $('#sual').val(evt.editor.getData())
     console.log($('#sual').val())
 });
+config.readOnly = true;    
 </script>
 @stop
 
