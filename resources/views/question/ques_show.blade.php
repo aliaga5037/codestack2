@@ -22,9 +22,11 @@
 
 
     <div class="panel-body">
-    <span>
+
+  
         {!! $question->sual !!}
-    </span>
+   
+    
     <hr>
     </div>
     <div class="capiton" style="padding: 10px;">
@@ -46,6 +48,14 @@
             </div>
     </div>
 </div>
-
+<div class="panel-body">
+<pre>
+<code >
+    <div></div>
+    <div></div>
+    <div></div>
+</code>
+</pre>
+</div>
 
 @stop

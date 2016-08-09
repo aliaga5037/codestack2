@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 {{-- <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -31,7 +30,10 @@
                             
                             
                             <div class="panel-body">
-                                <a href="/{{$question->category->id}}/question/{{$question->id}}">{!!$question->sual!!}</a>
+                                 <span><a href="/{{$question->category->id}}/question/{{$question->id}}">  
+                                    {!!$question->sual!!}
+                                </a>
+                                </span>
                                 <hr>
                             </div>
                             <div class="capiton" style="padding: 10px;">
@@ -40,9 +42,9 @@
                                 <span>{!!$answer->cavab!!}</span>
                                 <span class="pull-right">
                                     @if (Auth::user()->id == $answer->user_id)
-                                        {{ Form::open(['method' => 'DELETE', 'url' => Auth::user()->id.'/answer/'.$answer->id]) }}
-                                        {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger']) }}
-                                        {{ Form::close() }}
+                                    {{ Form::open(['method' => 'DELETE', 'url' => Auth::user()->id.'/answer/'.$answer->id]) }}
+                                    {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger']) }}
+                                    {{ Form::close() }}
                                     @endif
                                 </span>
                                 <hr>
@@ -54,7 +56,7 @@
                     </div>
                     @endforeach
                     <div class="text-center">
-                    {!!$ques->render()!!}
+                        {!!$ques->render()!!}
                     </div>
                 </div>
             </div>
