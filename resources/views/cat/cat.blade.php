@@ -23,9 +23,9 @@
                             
                             <div class="panel-body">
                                 <span>
-                                <a href="/{{$question->category->id}}/question/{{$question->id}}">{!!$question->sual!!}</a>
+                                <a href="/{{$question->category->id}}/question/{{$question->id}}">{!!$question->ques_title!!}</a>
                                 </span>
-                                <hr>
+                               
                             </div>
                             <div class="capiton" style="padding: 10px;">
                                 @foreach($question->answers as $answer)
@@ -40,7 +40,6 @@
                                 </span>
                                 <hr>
                                 @endforeach
-                                <a href="/{{$question->id}}/answer" class="btn btn-default">Cavabla</a>
                             </div>
                         </div>
                     </div>
