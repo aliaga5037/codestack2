@@ -27,8 +27,8 @@
         {!! $question->sual !!}
    
     
-    <hr>
     </div>
+    
     <div class="capiton" style="padding: 10px;">
         @foreach($question->answers as $answer)
             <span>{{$answer->user_username}}</span><br>
@@ -48,14 +48,6 @@
             </div>
     </div>
 </div>
-<div class="panel-body">
-<pre>
-<code >
-    <div></div>
-    <div></div>
-    <div></div>
-</code>
-</pre>
-</div>
+
 
 @stop

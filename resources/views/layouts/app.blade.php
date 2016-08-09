@@ -33,6 +33,11 @@
         span{
         word-break: break-all;
         }
+        span p{
+        word-break: break-all;
+        font-size:16px;
+        line-height: 18px;
+        }
         a:hover{
             text-decoration: none;
         }
