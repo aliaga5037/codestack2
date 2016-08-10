@@ -30,18 +30,22 @@
     </div>
     
     <div class="capiton" style="padding: 10px;">
-        @foreach($question->answers as $answer)
-            <span>{{$answer->user_username}}</span><br>
-            <span>{!!$answer->cavab!!}</span>
-            <span class="pull-right">
-                @if (Auth::user()->id == $answer->user_id)
-                {{ Form::open(['method' => 'DELETE', 'url' => Auth::user()->id.'/answer/'.$answer->id]) }}
-                {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger']) }}
-                {{ Form::close() }}
-            @endif
-            </span>
-            <hr>
-            @endforeach
+                            <ul class="list-group">
+                                @foreach($question->answers as $answer)
+                                <li class="list-group-item">
+                                <label class="label label-info" style="font-size:15px;float:left;text-transform: uppercase;">{{$answer->user_username}}s Answer:</label>
+                                    <span ><div style="margin-left:140px;">{!!$answer->cavab!!}</div></span>
+                                <span class="pull-right">
+                                    @if (Auth::user()->id == $answer->user_id)
+                                    <div style="margin-top:-25px">{{ Form::open(['method' => 'DELETE', 'url' => Auth::user()->id.'/answer/'.$answer->id]) }}</div>
+                                    
+                                    {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger']) }}
+                                    {{ Form::close() }}
+                                    @endif
+                                </span>
+                                </li>
+                                @endforeach
+                            </ul>
             <a href="/{{$question->id}}/answer" class="btn btn-default">Cavabla</a>
             </div>
             </div>
