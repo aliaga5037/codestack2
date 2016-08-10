@@ -16,7 +16,9 @@
         <script src="/assets/js/jquery.min.js"></script>
         <script src="/assets/js/main.js"></script>
 
+
         <script src="/js/prism/prism.js"></script>
+
         <script src="/vendors/ckeditor/ckeditor/ckeditor.js"></script>
 
 
