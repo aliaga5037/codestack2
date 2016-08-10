@@ -43,7 +43,11 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td><a href="/{{$res->user_id}}/question/{{$res->ques_id}}">{{$res->sual}}</a></td>
+										<td><a href="/{{$res->user_id}}/question/{{$res->ques_id}}">
+											<span style="">{{$res->ques_title}}</span>
+										</a>
+											<span>{!!$res->sual!!}</span>
+										</td>
 									</tr>
 								</tbody>
 							</table>

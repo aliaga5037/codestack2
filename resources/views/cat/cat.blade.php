@@ -23,24 +23,9 @@
                             
                             <div class="panel-body">
                                 <span>
-                                <a href="/{{$question->category->id}}/question/{{$question->id}}">{!!$question->sual!!}</a>
+                                <a href="/{{$question->category->id}}/question/{{$question->id}}">{!!$question->ques_title!!}</a>
                                 </span>
-                                <hr>
-                            </div>
-                            <div class="capiton" style="padding: 10px;">
-                                @foreach($question->answers as $answer)
-                                <span>{{$answer->user_username}}</span><br>
-                                <span>{!!$answer->cavab!!}</span>
-                                <span class="pull-right">
-                                    @if (Auth::user()->id == $answer->user_id)
-                                    {{ Form::open(['method' => 'DELETE', 'url' => Auth::user()->id.'/answer/'.$answer->id]) }}
-                                    {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger']) }}
-                                    {{ Form::close() }}
-                                    @endif
-                                </span>
-                                <hr>
-                                @endforeach
-                                <a href="/{{$question->id}}/answer" class="btn btn-default">Cavabla</a>
+                               
                             </div>
                         </div>
                     </div>

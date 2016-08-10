@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+	@extends('layouts.admin')
 @section('not')
 <li><a href="{{ url('/admin/notify') }}"><i class="fa fa-btn "></i>Notifications
 	@if (count($result) != 0)

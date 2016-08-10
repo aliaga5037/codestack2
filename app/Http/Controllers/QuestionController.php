@@ -60,7 +60,7 @@ class QuestionController extends Controller
     {
 
          
-        
+         
         $cat = Category::findOrFail($id);
         $user = Auth::user();
         $ques = new Question;
@@ -68,6 +68,7 @@ class QuestionController extends Controller
         $ques->user_id = $user->id;
         $ques->status = $user->role;
         $ques->user_username = $user->username;
+        $ques->ques_title=$request->quest_title;
         $cat->question()->save($ques);
         $usr_id = DB::select( DB::raw("SELECT id FROM users WHERE role != 'user'") );
 

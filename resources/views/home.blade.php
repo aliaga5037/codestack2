@@ -14,6 +14,9 @@
 </div> --}}
 <div class="container">
     <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+    <h1 style="line-height:9px;font-size:22px;color:#242729;">All Questions</h1><hr>
+    </div>
         @foreach($ques as $question)
         
         <div class="col-md-10 col-md-offset-1">
@@ -31,25 +34,9 @@
                             
                             <div class="panel-body">
                                  <span><a href="/{{$question->category->id}}/question/{{$question->id}}">  
-                                    {!!$question->sual!!}
+                                    {!!$question->ques_title!!}
                                 </a>
                                 </span>
-                                <hr>
-                            </div>
-                            <div class="capiton" style="padding: 10px;">
-                                @foreach($question->answers as $answer)
-                                <span>{{$answer->user_username}}</span><br>
-                                <span>{!!$answer->cavab!!}</span>
-                                <span class="pull-right">
-                                    @if (Auth::user()->id == $answer->user_id)
-                                    {{ Form::open(['method' => 'DELETE', 'url' => Auth::user()->id.'/answer/'.$answer->id]) }}
-                                    {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger']) }}
-                                    {{ Form::close() }}
-                                    @endif
-                                </span>
-                                <hr>
-                                @endforeach
-                                <a href="/{{$question->id}}/answer" class="btn btn-default">Cavabla</a>
                                 
                             </div>
                         </div>
