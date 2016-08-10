@@ -21,9 +21,9 @@
 					</thead>
 					<tbody>
 						
-							@foreach($user->question as $question)
+							@foreach($questions as $question)
 							<tr>
-							<td> <span>{!!$question->sual!!}</span> </td>
+							<td> <span><a href="/{{$question->category->id}}/question/{{$question->id}}">{!!$question->sual!!}</a></span> </td>
 							<td><a href="/{{$user->id}}/question/{{$question->id}}/edit" class="btn btn-primary">Edit</a></td>
 							<td>
 							{{ Form::open(['method' => 'DELETE', 'url' => $user->id.'/question/'.$question->id]) }}
