@@ -6,6 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Sual Dəyiş</div>
                 <div class="panel-body">
+                <span>{{ $ques->ques_title }}</span>
                     {!! Form::open(['url' => $id."/question/".$ques->id , 'method' => 'PATCH']) !!}
                     
                     <div class="form-group">

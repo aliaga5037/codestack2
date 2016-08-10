@@ -31,6 +31,7 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/{id}/profile', 'HomeController@show');
+Route::get('/{id}/questions', 'HomeController@showques');
 Route::get('/profile', 'HomeController@profile');
 Route::post('/profile' , 'HomeController@update_avatar');
 Route::get('/users', 'HomeController@users');

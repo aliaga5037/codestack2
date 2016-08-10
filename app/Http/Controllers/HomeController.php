@@ -124,5 +124,12 @@ class HomeController extends Controller
         return redirect('/home');
         
     }
+
+    public function showques($id)
+    {
+         $user = User::findOrFail($id);
+        $questions = Question::where('user_id',$id)->orderBy('id','desc')->get();
+        return view('auth.userques',compact('questions','user'));
+    }
 }
 

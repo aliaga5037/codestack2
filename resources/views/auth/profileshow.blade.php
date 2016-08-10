@@ -39,8 +39,10 @@ form{
                     </div>
                     
                     <div>{{ $user->name }}&nbsp{{ $user->surname }}</div>
-
+                    
                     <div>{{ $user->email }}</div>
+
+                    <div><a href="/{{ $user->id }}/questions">{{ $user->username }}in Sualları</a></div>
 
                    {{--  <div>
                         <a href="{{Auth::user()->id}}/myQuestions">suallar</a>
