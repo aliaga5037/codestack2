@@ -18,7 +18,7 @@
                         @elseif($question->status == 'user')
                         <div class="panel panel-default">
                             @endif
-                            <div class="panel-heading"><a href="/cat/{{$question->category->id}}" style="text-decoration:none;color:#a94442;">{{$question->category->cat_name}}</a><a href="/{{ $question->user_id }}/profile" style="text-decoration:none;color:#a94442;">/{{$question->user_username}}</a></div>
+                           <div class="panel-heading"><a href="/cat/{{$question->category->id}}" style="text-decoration:none;color:black;text-transform:uppercase;float:right">Category:{{$question->category->cat_name}}</a><a href="/{{ $question->user_id }}/profile" style="text-decoration:none;color:black;font-size:16px;">Owner:{{$question->user_username}}</a></div>
                             
                             
                             <div class="panel-body">

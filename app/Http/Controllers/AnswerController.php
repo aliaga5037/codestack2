@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Http\Requests\AnswerRequest;
+
 use App\User;
 
 use App\Question;
@@ -52,8 +54,9 @@ class AnswerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(AnswerRequest $request,$id)
     {
+
         $ques = Question::findOrFail($id);
         $user = Auth::user();
         $answer = new Answer;

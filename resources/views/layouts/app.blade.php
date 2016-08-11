@@ -43,6 +43,10 @@
         a:hover{
             text-decoration: none;
         }
+        .head_icon{
+            display: inline-block;
+            font-family: 'Open Sans Condensed', sans-serif; font-size: 28px; color: #777;
+        }
         </style>
     </head>
     <body id="app-layout">
@@ -56,7 +60,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a href="{{ url("/home") }}"><img src="/assets/images/ca_logo.png" style="height: 50px;width: 140px;"></a>
+                    <a href="{{ url("/home") }}"><img src="/assets/images/web_logo.png" style="height: 50px;width: 50px;"></a>
                     <!-- Branding Image -->
                 </div>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

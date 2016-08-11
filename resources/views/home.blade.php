@@ -25,15 +25,15 @@
                 @elseif($question->status == 'mentor')
                 <div class="panel panel-primary">
                     @elseif($question->status == 'admin')
-                    <div class="panel panel-danger">
+                    <div class="panel panel-success">
                         @elseif($question->status == 'user')
                         <div class="panel panel-default">
                             @endif
-                            <div class="panel-heading"><a href="/cat/{{$question->category->id}}" style="text-decoration:none;color:#a94442;">{{$question->category->cat_name}}</a><a href="/{{ $question->user_id }}/profile" style="text-decoration:none;color:#a94442;">/{{$question->user_username}}</a></div>
+                            <div class="panel-heading"><a href="/cat/{{$question->category->id}}" style="text-decoration:none;color:black;text-transform:uppercase;float:right">Category:{{$question->category->cat_name}}</a><a href="/{{ $question->user_id }}/profile" style="text-decoration:none;color:black;font-size:16px;">Owner:{{$question->user_username}}</a></div>
                             
                             
                             <div class="panel-body">
-                                 <span><a href="/{{$question->category->id}}/question/{{$question->id}}">  
+                                 <span><a style="color:black" href="/{{$question->category->id}}/question/{{$question->id}}">  
                                     {!!$question->ques_title!!}
                                 </a>
                                 </span>
