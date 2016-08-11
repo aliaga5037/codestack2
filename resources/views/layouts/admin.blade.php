@@ -11,9 +11,14 @@
 		<script src='/js/jquery-2.2.4.js'></script>
 		<script src="/bootstrap/js/bootstrap.min.js"></script>
 		<script src="/js/main.js"></script>
+
+		
+		<script src="/vendors/ckeditor/ckeditor/ckeditor.js"></script>
+
 		 <script src="/js/prism/prism.js"></script>
 		    <link rel="stylesheet" href="/js/prism/prism.css">
-		    <style type="text/css"></style>
+		 
+
 		@yield('head')
 	</head>
 	<body>

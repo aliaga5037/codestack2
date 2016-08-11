@@ -55,6 +55,13 @@ class HomeController extends Controller
         return view('auth.profile',array('user'=> Auth::user()));
     }
 
+    public function show($id)
+    {
+
+        $user = User::findOrFail($id);
+       return view('auth.profileshow')->with('user',$user);
+    }
+
     public function update(Request $request , $id)
     {
        
@@ -110,10 +117,19 @@ class HomeController extends Controller
     {
         if ($id == Auth::user()->id) {
             $user = User::findOrFail($id);
-        return view('question.ques_edit')->with('user',$user);
+            $questions = Question::where('user_id',$id)->orderBy('id','desc')->get();
+           
+        return view('question.ques_edit',compact('questions','user'));
         }
         return redirect('/home');
         
+    }
+
+    public function showques($id)
+    {
+         $user = User::findOrFail($id);
+        $questions = Question::where('user_id',$id)->orderBy('id','desc')->get();
+        return view('auth.userques',compact('questions','user'));
     }
 }
 

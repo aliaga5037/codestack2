@@ -32,47 +32,25 @@ form{
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Profil</div>
+                <div class="panel-heading">{{ $user->name }}in Profili</div>
                 <div class="panel-body">
                     <div>
                         <img src="/uploads/avatar/{{$user->avatar}}" alt="" style="height: 300px;width: 300px;float: left;border-radius:50%;">
                     </div>
                     
                     <div>{{ $user->name }}&nbsp{{ $user->surname }}</div>
-
+                    
                     <div>{{ $user->email }}</div>
 
-                    <div>
+                    <div><a href="/{{ $user->id }}/questions">{{ $user->username }}in Sualları</a></div>
+
+                   {{--  <div>
                         <a href="{{Auth::user()->id}}/myQuestions">suallar</a>
-                    </div>
-                    {!! Form::open(array('url' => 'profile' , 'files'=>'true')) !!}
-                    
-                        <div class="col-md-4">
-                        <span class="btn btn-primary btn-file form-group">
-                        Şəkli Dəyiş {!!Form::file('avatar',['id'=>'image'])!!}                        
-                        </span>
-                        {!! Form::text('image','',['class'=>'image form-control', 'readonly']); !!}
-                        {!!Form::submit('Yuklə',['class'=>'btn btn-primary','style'=>'float:right;'])!!}
-                        </div>
-                    
-                </div>
-            </div>
-        </div>
-        {!! Form::close() !!}
+                    </div> --}}
     </div>
 </div>
 </div>
 </div>
 </div>
 
-<script>
-    jQuery(document).ready(function($) {
-        $('#image').change(function() {
-           
-           $('.image').val($('#image').val());
-
-           
-        });
-    });
-</script>
 @stop

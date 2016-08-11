@@ -1133,3 +1133,48 @@ Prism.languages.typescript = Prism.languages.extend('javascript', {
 	'keyword': /\b(break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|function|get|if|implements|import|in|instanceof|interface|let|new|null|package|private|protected|public|return|set|static|super|switch|this|throw|true|try|typeof|var|void|while|with|yield|module|declare|constructor|string|Function|any|number|boolean|Array|enum)\b/
 });
 
+ (function(){
+
+if(!window.Prism || !document.querySelectorAll) {
+    return;
+}
+
+function $$(expr, con) {
+    return Array.prototype.slice.call((con || document).querySelectorAll(expr));
+}
+    
+function numberLines(pre) {
+    var offset = +pre.getAttribute('data-line-offset') || 0;
+    var lineHeight = parseFloat(getComputedStyle(pre).lineHeight);
+    var code = pre.querySelector('code');
+    var numLines = code.innerHTML.split('\n').length;
+    pre.setAttribute('data-number', '');
+
+    for (var i=1; i <= numLines; i++) {
+        var line = document.createElement('div');
+        console.log('')
+        line.className = 'line-number';
+        line.setAttribute('data-start', i);
+        line.style.top = (i - offset - 1) * lineHeight + 'px';
+
+        
+        (code || pre).appendChild(line);
+    }
+}
+
+Prism.hooks.add('after-highlight', function(env) {
+    var pre = env.element.parentNode;
+    
+    if (!pre || !/pre/i.test(pre.nodeName)) {
+        return;
+    }
+
+    $$('.line-number', pre).forEach(function (line) {
+        line.parentNode.removeChild(line);
+    });
+    
+    numberLines(pre);
+});
+
+})();
+
