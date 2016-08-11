@@ -60,7 +60,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a href="{{ url("/home") }}"><img src="/assets/images/web_logo.png" style="height: 50px;width: 50px;"></a>
+                    <a href="{{ url("/home") }}"><img src="/assets/images/web_logo.png" style="height: 50px;margin: 3px 45px 0 0px;;"></a>
                     <!-- Branding Image -->
                 </div>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
