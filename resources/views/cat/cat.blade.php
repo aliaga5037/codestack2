@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('sual')
-<div class="col-md-2">
+<div class="col-md-1">
     <a href="/{{$catName->id}}/question" class="btn btn-primary" style="margin-top: 8px;">Sual ver</a>
 </div>
 @stop
