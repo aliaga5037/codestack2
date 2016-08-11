@@ -46,9 +46,8 @@
 								
 									<td>
 									<label class="label label-info" style="font-size:16px">Tittle:</label>
-									<span style="font-size:15px; word-break: break-all;">{!!$q->ques_title!!}</span><br>
+									<span style="font-size:15px; word-break: break-all;"><a href="/{{$q->user_id}}/question/{{$q->id}}">{!!$q->ques_title!!}</a></span><br>
 									<br>
-									<label class="label label-success" style="font-size:16px;top:20px;">Question:</label>{!!$q->sual!!}
 										</td>
 									{{-- <td><a href="{{ url('/question/'.$q->id.'/edit') }}" class="btn btn-primary" >Edit</a></td> --}}
 									<td>

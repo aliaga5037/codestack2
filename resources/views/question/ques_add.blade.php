@@ -1,7 +1,8 @@
 @extends('layouts.app')
-@section('content')
-
-    
+@section('content'){{-- 
+@if (count($errors) > 0)
+    {{ dd($errors) }}
+@endif --}}
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -31,12 +32,19 @@
     <script>
 editor.on( 'change', function( evt ) {
     $('#sual').val(evt.editor.getData())
-    console.log($('#sual').val())
 });
 editor.config.height = 100;  
 </script>
 @stop
-
-
-
+<div class="container">
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+</div>
 @stop

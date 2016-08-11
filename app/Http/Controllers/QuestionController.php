@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\QuestionRequest;
+
 use App\Http\Requests;
 
 use App\User;
@@ -56,7 +58,7 @@ class QuestionController extends Controller
 
 
 
-    public function store(Request $request,$id)
+    public function store(QuestionRequest $request,$id)
     {
 
          
