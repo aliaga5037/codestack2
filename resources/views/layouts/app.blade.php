@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/js/prism/prism.css">
         {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
         <script src="/assets/js/jquery.min.js"></script>
-        <script src="/assets/js/main.js"></script>
+        {{-- <script src="/assets/js/main.js"></script> --}}
 
 
         <script src="/js/prism/prism.js"></script>

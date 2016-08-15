@@ -39,6 +39,7 @@
                                 </span>
                                 
                             </div>
+                             <div class="panel-footer"> {{$question->created_at->diffForHumans()}}</div>
                         </div>
                     </div>
                     @endforeach

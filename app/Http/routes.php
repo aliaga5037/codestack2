@@ -45,8 +45,10 @@ Route::get('/categories', 'HomeController@cat');
 
 Route::resource('/cat' , 'CategoryController');
 Route::resource('/{category}/question' , 'QuestionController');
-Route::resource('{question}/answer' , 'AnswerController');
+Route::resource('/{question}/answer' , 'AnswerController');
 
+Route::get('/{quesId}/answerdeletewithajax/{id}', 'AnswerController@destroy');
+Route::post('/{id}/answeraddwithajax', 'AnswerController@store');
 
 Route::get('/search', 'SearchController@search');
 Route::get('/searchresult', 'SearchController@show');
