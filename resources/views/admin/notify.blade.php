@@ -34,11 +34,12 @@
 						<div class="panel-body">
 						@foreach ($result as $res)
 							
-						
+						<h1>{{$res->sualverena }}</h1>
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>{{$res->sualverena 	}}</th>
+										<th>sual basligi</th>
+										<th>sual</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -46,6 +47,8 @@
 										<td><a href="/{{$res->user_id}}/question/{{$res->ques_id}}">
 											<span style="">{{$res->ques_title}}</span>
 										</a>
+										</td>
+										<td>
 											<span>{!!$res->sual!!}</span>
 										</td>
 									</tr>

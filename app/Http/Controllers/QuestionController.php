@@ -127,7 +127,7 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id,$quesId)
+    public function update(QuestionRequest $request, $id,$quesId)
     {
         if ($id != Auth::user()->id) {
                     return redirect()->intended('/');

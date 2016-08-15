@@ -20,9 +20,9 @@
                     {!! Form::open(['url' => $category->id."/question"]) !!}
                     
                     <div class="form-group">
-                        {!!Form::label('quest_title', 'Your questions title:', array('class' => 'label label-primary ' ));!!}
+                        {!!Form::label('quest_title', 'Sual Başlığı:', array('class' => 'label label-primary ' ));!!}
                         {!!Form::text('quest_title',null,['class'=>'form-control' , 'id'=>'ques_title'])!!}
-                        {!!Form::label('editor1', 'Your questions:', array('class' => 'label label-info'));!!}
+                        {!!Form::label('editor1', 'Sual:', array('class' => 'label label-info'));!!}
                         {!!Form::text('editor1',null,['class'=>'form-control' , 'id'=>'editor1'])!!}
                         {!!Form::hidden('sual',null,['id'=>'sual'])!!}
                     </div>
@@ -39,7 +39,7 @@
 @section('ck')
 <script>
 editor.on( 'change', function( evt ) {
-$('#sual').val(evt.editor.getData())
+    $('#sual').val(evt.editor.getData())
 });
 editor.config.height = 100;
 </script>

@@ -10,7 +10,7 @@
 
             <tr>
                        
-                <td><a href="{{$question->category_id}}/question/{{$question->id}}">{!! $question->sual !!}</a></td>
+                <td><a href="{{$question->category_id}}/question/{{$question->id}}"><span>{!! $question->ques_title !!}</span></a></td>
                 
             </tr>
 

@@ -15,8 +15,8 @@
 					<thead>
 						<tr>
 							<th>{{$user->username}}</th>
-							<th>Edit</th>
-							<th>Delete</th>
+							<th>Redaktə et</th>
+							<th>Sil</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -24,10 +24,10 @@
 							@foreach($questions as $question)
 							<tr>
 							<td> <span><a href="/{{$question->category->id}}/question/{{$question->id}}">{!!$question->ques_title!!}</a></span> </td>
-							<td><a href="/{{$user->id}}/question/{{$question->id}}/edit" class="btn btn-primary">Edit</a></td>
+							<td><a href="/{{$user->id}}/question/{{$question->id}}/edit" class="btn btn-primary">Redaktə et</a></td>
 							<td>
 							{{ Form::open(['method' => 'DELETE', 'url' => $user->id.'/question/'.$question->id]) }}
-								{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+								{{ Form::submit('Sil', ['class' => 'btn btn-danger']) }}
 								{{ Form::close() }}
 							
 							</td>

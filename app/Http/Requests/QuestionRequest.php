@@ -26,7 +26,6 @@ class QuestionRequest extends Request
         return [
             'quest_title' => 'required|min:10|max:150',
             'sual' => 'required|min:10',
-            'cavab' => 'required|min:10',
         ];
     }
 
@@ -37,8 +36,7 @@ class QuestionRequest extends Request
         'quest_title.min' => 'Sual Basligi en az 10 simvol olmalidir.',
         'quest_title.max' => 'Sual Basligi 100 simvoldan cox olmamalidir.',
         'sual.required'  => 'Sual bomlesini doldurun!',
-        'cavab.required'  => 'Cavab bomlesini doldurun!',
-        // 'sual.min'  => 'Sual bomlesini en az 10 simvol olmalidir.',
+        'sual.min'  => 'Sual bomlesini en az 10 simvol olmalidir.',
     ];
 }
 }

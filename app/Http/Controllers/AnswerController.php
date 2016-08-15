@@ -64,7 +64,7 @@ class AnswerController extends Controller
         $answer->user_id = $user->id;
         $answer->user_username = $user->username;
         $ques->answers()->save($answer);
-        return redirect("/home");
+        return back();
     }
 
     /**

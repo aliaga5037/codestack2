@@ -27,7 +27,7 @@
         @yield('head')
         <style>
         body {
-        font-family: 'Lato';
+        font-family: 'Verdana';
         }
         .fa-btn {
         margin-right: 6px;
@@ -66,7 +66,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/home') }}">Ana Sehife</a></li>
+                        <li><a href="{{ url('/home') }}">Ana Səhifə</a></li>
                     </ul>
                     @if (Auth::user())
                     <ul class="nav navbar-nav">
@@ -125,10 +125,10 @@
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Çıxış</a></li>
                                 <li><a href="{{ url('/profile') }}"><i class="fa fa-btn "></i>Profil</a></li>
                                 @if(Auth::user()->role == 'admin' || Auth::user()->role == 'muellim'  || Auth::user()->role == 'mentor')
-                                <li><a href="{{ url('/adminPage') }}"><i class="fa fa-btn "></i>Admin&nbspSehifesi</a></li>
+                                <li><a href="{{ url('/adminPage') }}"><i class="fa fa-btn "></i>Admin&nbspSəhifəsi</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Çıxış</a></li>
                                 @endif
                             </ul>
                         </li>
