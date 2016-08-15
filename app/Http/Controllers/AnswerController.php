@@ -64,7 +64,7 @@ class AnswerController extends Controller
         $answer->user_id = $user->id;
         $answer->user_username = $user->username;
         $ques->answers()->save($answer);
-        return back();
+        // return back();
     }
 
     /**
@@ -111,6 +111,12 @@ class AnswerController extends Controller
     {
 
         $ques = Answer::findOrFail($id)->delete();
-        return back();
+        return "nkcscs";
+    }
+        public function del($quesId,$id)
+    {
+
+        $ques = Answer::findOrFail($id)->delete();
+        return "nkcscs";
     }
 }

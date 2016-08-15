@@ -18,7 +18,7 @@
                         @elseif($question->status == 'user')
                         <div class="panel panel-default">
                             @endif
-                           <div class="panel-heading"><a href="/cat/{{$question->category->id}}" style="text-decoration:none;color:black;text-transform:uppercase;float:right">Category:{{$question->category->cat_name}}</a><a href="/{{ $question->user_id }}/profile" style="text-decoration:none;color:black;font-size:16px;">Owner:{{$question->user_username}}</a></div>
+                                <div class="panel-heading"><a href="/cat/{{$question->category->id}}" style="text-decoration:none;color:black;text-transform:uppercase;float:right">Kateqoriya:{{$question->category->cat_name}}</a><a href="/{{ $question->user_id }}/profile" style="text-decoration:none;color:black;font-size:16px;">Sualı Verən:<img src="/uploads/avatar/{{ $question->user->avatar }}" style="height: 50px;margin: 3px 10px 0 0px; border-radius:50%">{{$question->user_username}}</a></div>
                             
                             
                             <div class="panel-body">
@@ -27,6 +27,7 @@
                                 </span>
                                
                             </div>
+                            <div class="panel-footer"> {{$question->created_at->diffForHumans()}}</div> 
                         </div>
                     </div>
                     @endforeach

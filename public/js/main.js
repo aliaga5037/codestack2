@@ -33,44 +33,44 @@ $(document).ready(function () {
 });
 
 
-jQuery(document).ready(function($) {
-    $('.search').click(
-        function() {
-            $('.blur').css("z-index","9").fadeIn();
-            $(this).css({
-                "marginRight": "20px",
-                "backgroundColor": "white"
-            })
-            $(".askbtn").text("suali tesdiqle")
-            $(".searchbar").addClass('m10') 
-        $(".sag").css("display","none");
-    });
-    $(".askbtn").click(function(event) {
-        if($(".search").val().length == 0){
-            $(".search").val("?")
-        }
-        $('.blur').css("z-index","9").fadeIn();
-            $(".search").css({
-                "marginRight": "20px",
-                "backgroundColor": "white"
-            })
-            $(".askbtn").text("suali tesdiqle")
-            $(".searchbar").addClass('m10')
-        $(".sag").css("display","none");    });
-    $('.blur').click(function(e) {
-        $(this).fadeOut(function() {
-        });
-        $('.search').css({
-                "marginRight": "0px",
-                "backgroundColor": "lightgray"
-            })
-        $(".sag").css("display","block");
-        $(".searchbar").removeClass('m10');
-         $(".askbtn").text("sual ver")
+// jQuery(document).ready(function($) {
+//     $('.search').click(
+//         function() {
+//             $('.blur').css("z-index","9").fadeIn();
+//             $(this).css({
+//                 "marginRight": "20px",
+//                 "backgroundColor": "white"
+//             })
+//             $(".askbtn").text("suali tesdiqle")
+//             $(".searchbar").addClass('m10') 
+//         $(".sag").css("display","none");
+//     });
+//     $(".askbtn").click(function(event) {
+//         if($(".search").val().length == 0){
+//             $(".search").val("?")
+//         }
+//         $('.blur').css("z-index","9").fadeIn();
+//             $(".search").css({
+//                 "marginRight": "20px",
+//                 "backgroundColor": "white"
+//             })
+//             $(".askbtn").text("suali tesdiqle")
+//             $(".searchbar").addClass('m10')
+//         $(".sag").css("display","none");    });
+//     $('.blur').click(function(e) {
+//         $(this).fadeOut(function() {
+//         });
+//         $('.search').css({
+//                 "marginRight": "0px",
+//                 "backgroundColor": "lightgray"
+//             })
+//         $(".sag").css("display","block");
+//         $(".searchbar").removeClass('m10');
+//          $(".askbtn").text("sual ver")
         
         
 
-    });
+//     });
 
 
 });

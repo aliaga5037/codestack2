@@ -17,7 +17,7 @@ class SearchController extends Controller
            'search' => 'required'
        ]);
        $questions = DB::table('questions')
-           ->where('sual', 'LIKE', '%' . $request->search . '%')
+           ->where('ques_title', 'LIKE', '%' . $request->search . '%')
            ->orWhere('user_username', 'LIKE', '%' . $request->search . '%')->get();
        return view('search', compact('questions'));
    }

@@ -44,25 +44,24 @@
                                     <span ><div >{!!$answer->cavab!!}</div></span>
                                 <span class="pull-right">
                                     @if (Auth::user()->id == $answer->user_id)
-                                    <div style="margin-top:-25px">{{ Form::open(['method' => 'DELETE', 'url' => Auth::user()->id.'/answer/'.$answer->id]) }}</div>
-                                    
-                                    {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger']) }}
-                                    {{ Form::close() }}
+                                    <div style="margin-top:-25px"></div>
+                                    {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger dlt' ,'data' => $answer->id]) }}
+
                                     @endif
                                 </span>
                                 </li>
                                 @endforeach
                             </ul>
-                    {!! Form::open(['url' => "/$question->id/answer"]) !!}
+                    {{-- {!! Form::open(['url' => "/$question->id/answer"]) !!} --}}
                     
                     <div class="form-group">
                         {!!Form::text('editor1',null,['class'=>'form-control' , 'id'=>'editor1'])!!}
                         {!!Form::hidden('cavab',null,['id'=>'cavab'])!!}
                     </div>
                     <div class="form-group">
-                        {!!Form::submit('Cavabla',['class'=>'btn btn-primary'])!!}
+                        {!!Form::submit('Cavabla',['class'=>'btn btn-primary','id'=>'cvbver'])!!}
                     </div>
-                    {!! Form::close() !!}
+                    {{-- {!! Form::close() !!} --}}
                 </div>
                 @if (count($errors) > 0)
                 <ul class="list-group">
@@ -78,6 +77,58 @@
 <script>
 editor.on( 'change', function( evt ) {
 $('#cavab').val(evt.editor.getData())
+});
+
+jQuery(document).ready(function($) {
+
+    $('.dlt').click(function (argument) {
+        var id=$(this).attr('data')
+        $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN':'{{ csrf_token() }}'
+            }
+        })
+        
+        $.ajax({
+            url: "/{{Auth::user()->id}}/answerdeletewithajax/"+id+"",
+            type: 'GET',
+            dataType: 'text',
+            data: {param1: 'value1'},
+        })
+
+        $(this).parent().parent().remove()
+        
+    })
+
+
+
+    $('#cvbver').click(function() {
+
+        var postques=$('#cavab').val();
+
+         $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN':'{{ csrf_token() }}'
+            } 
+        })
+                $.ajax({
+                url: '/{{$question->id}}/answeraddwithajax',
+                type: 'POST',
+                dataType: 'text',
+                data: {cavab:postques},
+            })
+            .done(function(param) {
+                console.log(param);
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            }); 
+
+    });
+
 });
 </script>
             </div>

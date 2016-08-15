@@ -26,9 +26,9 @@
 							<td> <span><a href="/{{$question->category->id}}/question/{{$question->id}}">{!!$question->ques_title!!}</a></span> </td>
 							<td><a href="/{{$user->id}}/question/{{$question->id}}/edit" class="btn btn-primary">Redaktə et</a></td>
 							<td>
-							{{ Form::open(['method' => 'DELETE', 'url' => $user->id.'/question/'.$question->id]) }}
-								{{ Form::submit('Sil', ['class' => 'btn btn-danger']) }}
-								{{ Form::close() }}
+							{{-- {{ Form::open(['method' => 'DELETE', 'url' => $user->id.'/question/'.$question->id]) }} --}}
+								{{ Form::submit('Sil', ['class' => 'btn btn-danger pr_ques_delete' ,'data' => $question->id]) }}
+								{{-- {{ Form::close() }} --}}
 							
 							</td>
 							</tr>
@@ -41,4 +41,25 @@
 </div>
 </div>
 </div>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$('.pr_ques_delete').click(function(event) {
+			 var id=$(this).attr('data')
+        $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN':'{{ csrf_token() }}'
+            }
+        })
+        
+        $.ajax({
+            url: "/{{Auth::user()->id}}/quesdeletewithajax/"+id+"",
+            type: 'GET',
+            dataType: 'text',
+            data: {param1: 'value1'},
+        })
+
+        $(this).parent().parent().remove()
+		});
+	});
+</script>
 @stop
