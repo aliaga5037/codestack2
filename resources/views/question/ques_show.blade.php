@@ -63,13 +63,8 @@
                     </div>
                     {{-- {!! Form::close() !!} --}}
                 </div>
-                @if (count($errors) > 0)
-                <ul class="list-group">
-                    @foreach ($errors->all() as $error)
-                    <li class="list-group-item list-group-item-action list-group-item-danger">{{ $error }}</li>
-                    @endforeach
-                </ul>
-                @endif
+                <ul id="error_lists" class="list-group"></ul>
+
             </div>
         </div>
     </div>
@@ -112,8 +107,13 @@ jQuery(document).ready(function($) {
                 $('#cvb').append(' <li class="list-group-item"><label class="label '+b+'" style="font-size:15px;display: block;text-transform: uppercase;">'+data.user.username+'s Answer:</label><span ><div >'+data.cvb.cavab+'</div></span><span class="pull-right"><div style="margin-top:-25px;"></div>'+a+'</span></li>')
 
             })
-            .fail(function() {
-                console.log("error");
+            .fail(function(data2) {
+                 var error=data2.responseJSON.cavab[0];
+                  if (error) {
+                     $('#error_lists').append(' <li class="list-group-item list-group-item-action list-group-item-danger">'+error+'</li>')
+                  }
+                
+
             })
 
     });
