@@ -64,6 +64,12 @@ class AnswerController extends Controller
         $answer->user_id = $user->id;
         $answer->user_username = $user->username;
         $ques->answers()->save($answer);
+
+        // $cvb = Answer::orderBy('id','desc')->with('user')->first();
+        $cvb = $answer;
+
+
+        return response()->json(array('cvb'=> $cvb,'user'=>$user), 200);
         // return back();
     }
 

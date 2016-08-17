@@ -26,12 +26,12 @@
     </div>
     
     <div class="capiton" style="padding: 10px;">
-                            <ul class="list-group">
+                            <ul class="list-group" id="cvb">
                                 @foreach($question->answers as $answer)
                                 
                                 <li class="list-group-item">
                                 <label class="label  @if ($answer->user->role == 'muellim')
-            label-info
+            label-success
                 @elseif($answer->user->role == 'mentor')
                 label-primary
                     @elseif($answer->user->role == 'admin')
@@ -81,7 +81,45 @@ $('#cavab').val(evt.editor.getData())
 
 jQuery(document).ready(function($) {
 
-    $('.dlt').click(function (argument) {
+
+
+
+
+    $('#cvbver').click(function() {
+
+        var postques=$('#cavab').val();
+
+         $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN':'{{ csrf_token() }}'
+            } 
+        })
+                $.ajax({
+                url: '/{{$question->id}}/answeraddwithajax',
+                type: 'POST',
+                dataType: 'json',
+                data: {cavab:postques},
+            })
+            .done(function(data) {
+                if ({{ Auth::user()->id}} == data.user.id) {
+                    a = "<input type='submit' class='btn-xs btn-danger dlt' data="+data.cvb.id+" value='Delete'>"
+                }else{a = ''}
+                if (data.user.role == "admin") {
+                   b = "label-danger"
+                }else if(data.user.role == "muellim"){b = "label-success"}
+                else if(data.user.role == "mentor"){b = "label-primary"}
+                    else{b = "label-default"}
+                $('#cvb').append(' <li class="list-group-item"><label class="label '+b+'" style="font-size:15px;display: block;text-transform: uppercase;">'+data.user.username+'s Answer:</label><span ><div >'+data.cvb.cavab+'</div></span><span class="pull-right"><div style="margin-top:-25px;"></div>'+a+'</span></li>')
+
+            })
+            .fail(function() {
+                console.log("error");
+            })
+
+    });
+
+
+        $( "body" ).on( "click", ".dlt",function (argument) {
         var id=$(this).attr('data')
         $.ajaxSetup({
             headers:{
@@ -99,35 +137,6 @@ jQuery(document).ready(function($) {
         $(this).parent().parent().remove()
         
     })
-
-
-
-    $('#cvbver').click(function() {
-
-        var postques=$('#cavab').val();
-
-         $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN':'{{ csrf_token() }}'
-            } 
-        })
-                $.ajax({
-                url: '/{{$question->id}}/answeraddwithajax',
-                type: 'POST',
-                dataType: 'text',
-                data: {cavab:postques},
-            })
-            .done(function(param) {
-                console.log(param);
-            })
-            .fail(function() {
-                console.log("error");
-            })
-            .always(function() {
-                console.log("complete");
-            }); 
-
-    });
 
 });
 </script>
