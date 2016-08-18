@@ -58,8 +58,10 @@ class QuestionController extends Controller
 
 
 
-    public function store(QuestionRequest $request,$id)
-    {      
+    public function store(QuestionRequest $request,$id){
+
+         
+        
         $cat = Category::findOrFail($id);
         $user = Auth::user();
         $ques = new Question;
