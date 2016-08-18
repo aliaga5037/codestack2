@@ -34,7 +34,7 @@
 						<div class="panel-body">
 						@foreach ($result as $res)
 							
-						<h1>{{$res->sualverena }}</h1>
+						<h1>{{$res->user_username }}</h1>
 							<table class="table table-bordered">
 								<thead>
 									<tr>

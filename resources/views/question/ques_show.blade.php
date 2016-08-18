@@ -101,6 +101,8 @@ jQuery(document).ready(function($) {
                 data: {cavab:postques},
             })
             .done(function(data) {
+
+
                 if ({{ Auth::user()->id}} == data.user.id) {
                     a = "<input type='submit' class='btn-xs btn-danger dlt' data="+data.cvb.id+" value='Delete'>"
                 }else{a = ''}
@@ -115,7 +117,7 @@ jQuery(document).ready(function($) {
             .fail(function() {
                 console.log("error");
             })
-
+             CKEDITOR.instances.editor1.setData('');
     });
 
 

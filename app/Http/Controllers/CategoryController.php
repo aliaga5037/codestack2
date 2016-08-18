@@ -47,7 +47,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $result = DB::select('call nots(?)',array(Auth::user()->id));
+        //result = DB::select('call nots(?)',array(Auth::user()->id));
+
+        $idd=Auth::user()->id;
+        $result=nots($idd);
         return view('cat.add',compact('result'));
     }
 
@@ -80,7 +83,11 @@ class CategoryController extends Controller
                 }
         $catName = Category::findOrFail($id);
         $ques = Question::where('category_id',$id)->orderBy('id','desc')->paginate(5);
-        $result = DB::select('call nots(?)',array(Auth::user()->id));
+        //$result = DB::select('call nots(?)',array(Auth::user()->id));
+            $idd=Auth::user()->id;
+           $result=nots($idd);
+       
+
         return view('cat.cat',compact('catName','ques','result'));
     }
 
@@ -96,7 +103,9 @@ class CategoryController extends Controller
                     return redirect()->intended('/');
                 }
         $cat = Category::findOrFail($id);
-        $result = DB::select('call nots(?)',array(Auth::user()->id));
+        //$result = DB::select('call nots(?)',array(Auth::user()->id));
+        $idd=Auth::user()->id;
+           $result=nots($idd);
         return view('cat.edit',compact('cat','result'));
     }
 

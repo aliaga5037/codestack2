@@ -32,7 +32,10 @@
 					return redirect()->intended('/');
 				}
 			$users = User::all();
-			$result = DB::select('call nots(?)',array(Auth::user()->id));
+			// $result = DB::select('call nots(?)',array(Auth::user()->id));
+
+			$idd=Auth::user()->id;
+           $result=nots($idd);
 			return view('admin.tables',compact('users','result'));
 			
 			
@@ -46,7 +49,10 @@
 			if ($this->role == 'user') {
 					return redirect()->intended('/');
 				}
-			$result = DB::select('call nots(?)',array(Auth::user()->id));
+			// $result = DB::select('call nots(?)',array(Auth::user()->id));
+
+				$idd=Auth::user()->id;
+           $result=nots($idd);
 			
 			return view('admin.notify',compact('result'));
 			
@@ -62,7 +68,10 @@
 	       if ($this->role == 'user') {
 					return redirect()->intended('/');
 				}
-	            $result = DB::select('call nots(?)',array(Auth::user()->id));
+	            // $result = DB::select('call nots(?)',array(Auth::user()->id));
+
+	            $idd=Auth::user()->id;
+           $result=nots($idd);
 	            return view('admin.index',compact('result'));
 	        
 
@@ -77,7 +86,9 @@
 					return redirect()->intended('/');
 				}
 				$users = User::findOrFail($id);
-				$result = DB::select('call nots(?)',array(Auth::user()->id));
+				// $result = DB::select('call nots(?)',array(Auth::user()->id));
+				$idd=Auth::user()->id;
+           $result=nots($idd);
 	            return view('admin.questions',compact('users','result'));
 	        
 	    }
@@ -90,7 +101,9 @@
 				}
 				$user = User::findOrFail($id);
 				$ques = Question::findOrFail($quesId); 
-				$result = DB::select('call nots(?)',array(Auth::user()->id));
+				// $result = DB::select('call nots(?)',array(Auth::user()->id));
+				$idd=Auth::user()->id;
+           $result=nots($idd);
 	            return view('admin.ques_edit',compact('user','ques','result'));
 	        
 	    }
@@ -124,7 +137,9 @@
 	       if ($this->role == 'user') {
 					return redirect()->intended('/');
 				}
-	            $result = DB::select('call nots(?)',array(Auth::user()->id));
+	            // $result = DB::select('call nots(?)',array(Auth::user()->id));
+	            $idd=Auth::user()->id;
+           $result=nots($idd);
 	            return view('admin.categories',compact('result'));
 	    }
 
@@ -134,7 +149,9 @@
 	       if ($this->role == 'user') {
 					return redirect()->intended('/');
 				}
-	            $result = DB::select('call nots(?)',array(Auth::user()->id));
+	            // $result = DB::select('call nots(?)',array(Auth::user()->id));
+	            $idd=Auth::user()->id;
+           $result=nots($idd);
 	            $ques = Question::orderBy('id','desc')->paginate(25);
 	            return view('admin.ques',compact('result','ques'));
 	    }

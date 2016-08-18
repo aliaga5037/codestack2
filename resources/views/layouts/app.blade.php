@@ -17,7 +17,7 @@
         {{-- <script src="/assets/js/main.js"></script> --}}
 
 
-        <script src="/js/prism/prism.js"></script>
+        
 
         <script src="/vendors/ckeditor/ckeditor/ckeditor.js"></script>
 
@@ -166,5 +166,6 @@
         
         </script>
         @yield('ck')
+        <script src="/js/prism/prism.js"></script>
     </body>
 </html>
