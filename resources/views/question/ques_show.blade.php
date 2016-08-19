@@ -40,7 +40,7 @@
                         label-default
                             @endif"
 
-                                 style="font-size:15px;display: block;text-transform: uppercase;">{{$answer->user_username}}s Answer:</label>
+                                 style="font-size:15px;display: block;text-transform: uppercase;">Cavablayan:&nbsp{{$answer->user_username}}</label>
                                     <span ><div >{!!$answer->cavab!!}</div></span>
                                 <span class="pull-right">
                                     @if (Auth::user()->id == $answer->user_id)

@@ -12,6 +12,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
+
 class HomeController extends Controller
 {
     /**
@@ -33,7 +34,6 @@ class HomeController extends Controller
     {
 
         $ques = Question::orderBy('id','desc')->paginate(5);
-
         return view('home',compact('ques'));
     }
 

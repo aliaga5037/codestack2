@@ -8,6 +8,7 @@ use App\Notification;
 use Auth;
 use DB;
 use View;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
         view()->share('cat', Category::orderBy('id', 'desc')
                 ->get(),[Category::paginate(2)]);
         view()->share('Cat', Category::all());
+        Carbon::setLocale('az');
+
 
         // View::composer('*',function($view){
 
