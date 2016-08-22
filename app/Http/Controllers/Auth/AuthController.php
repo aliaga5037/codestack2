@@ -8,6 +8,9 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use App\ActivationService;
+
 
 
 class AuthController extends Controller
@@ -31,15 +34,17 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    protected $activationService;
 
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+   public function __construct(ActivationService $activationService)
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->activationService = $activationService;
     }
 
     /**
@@ -75,5 +80,22 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
+    }
+
+     public function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $user = $this->create($request->all());
+
+        $this->activationService->sendActivationMail($user);
+
+        return redirect('/login')->with('status', 'We sent you an activation code. Check your email.');
     }
 }

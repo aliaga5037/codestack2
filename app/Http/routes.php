@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
 
 // Route::get('/test', function () {
 //     return view('test');

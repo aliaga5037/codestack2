@@ -17,6 +17,16 @@
                 <img src="http://portal.code.edu.az/images/login_background.jpg" class="md-card-image" alt="Washed Out" style="width: 100%;height: 300px;">
               </div>
               <div class="panel-body">
+              @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+                    @if (session('warning'))
+                    <div class="alert alert-warning">
+                        {{ session('warning') }}
+                    </div>
+                    @endif
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 

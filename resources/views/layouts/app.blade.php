@@ -128,8 +128,9 @@
                                 <li><a href="{{ url('/profile') }}"><i class="fa fa-btn "></i>Profil</a></li>
                                 @if(Auth::user()->role == 'admin' || Auth::user()->role == 'muellim'  || Auth::user()->role == 'mentor')
                                 <li><a href="{{ url('/adminPage') }}"><i class="fa fa-btn "></i>Admin&nbspSəhifəsi</a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Çıxış</a></li>
                                 @endif
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Çıxış</a></li>
+                                
                             </ul>
                         </li>
                         @endif

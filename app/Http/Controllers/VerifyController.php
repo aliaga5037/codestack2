@@ -157,7 +157,7 @@
 	            return view('admin.ques',compact('result','ques'));
 	    }
 
-	    public function status(Request $request,$id)
+	    public function status($id)
 	    {
 	    	if ($this->role == 'user') {
 					return redirect()->intended('/');
