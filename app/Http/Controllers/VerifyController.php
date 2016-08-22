@@ -7,6 +7,7 @@
 	use App\Question;
 	use Auth;
 	use DB;
+	use Mail;
 	class VerifyController extends Controller
 	{
 
@@ -16,8 +17,8 @@
 			public function __construct()
 		{
 				$this->middleware('auth');
-				// $this->user = Auth::user();
-				// $this->role = $this->user->role;
+				$this->user = Auth::user();
+				$this->role = $this->user->role;
 				
 		}
 
@@ -156,11 +157,28 @@
 	            return view('admin.ques',compact('result','ques'));
 	    }
 
-	   //  public function add_cat()
-	   //  {
-	   //  	if ($this->role == 'user') {
-				// 	return redirect()->intended('/');
-				// }
-				// return view('cat.add');
-	   //  }
+	    public function status(Request $request,$id)
+	    {
+	    	if ($this->role == 'user') {
+					return redirect()->intended('/');
+				}
+
+				$user = User::findOrFail($id);
+				$userMail = $user->email;
+				if ($user->confirm == 0) {
+					$user->confirm = 1;
+					$subject = 'tesdiqlendi';
+				}else{
+					$user->confirm = 0;
+					$subject = 'dayandirildi';
+				}$user->save();
+
+
+				Mail::send('auth.emails.giris',[],function($mail) use($userMail,$subject) {
+
+                $mail->to($userMail)->subject($subject);
+              });
+
+				return back();
+	    }
 }

@@ -19,7 +19,7 @@
 				<ul class="nav">
 					<!-- Main menu -->
 					<li><a href="/adminPage"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-					<li><a href="/admin/tables"><i class="glyphicon glyphicon-list"></i> Tables</a></li>
+					<li><a href="/admin/tables"><i class="glyphicon glyphicon-list"></i> Users</a></li>
 					<li class="current"><a href="/admin/ques"><i class="glyphicon glyphicon-list"></i> Questions</a></li>
 					<li><a href="/admin/cats"><i class="glyphicon glyphicon-list"></i> Categories</a></li>
 				</ul>

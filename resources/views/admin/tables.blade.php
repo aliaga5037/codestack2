@@ -19,7 +19,7 @@
 				<ul class="nav">
 					<!-- Main menu -->
 					<li><a href="/adminPage"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-					<li class="current"><a href="/admin/tables"><i class="glyphicon glyphicon-list"></i> Tables</a></li>
+					<li class="current"><a href="/admin/tables"><i class="glyphicon glyphicon-list"></i> Users</a></li>
 					<li><a href="/admin/ques"><i class="glyphicon glyphicon-list"></i> Questions</a></li>
 					<li><a href="/admin/cats"><i class="glyphicon glyphicon-list"></i> Categories</a></li>
 				</ul>
@@ -41,6 +41,8 @@
 								<th>email</th>
 								<th>role</th>
 								<th>questions</th>
+								<th>Confirmed</th>
+								<th>Not Confirmed</th>
 								<th>created_at</th>
 								<th>updated_at</th>
 								<th>Delete</th>
@@ -70,8 +72,23 @@
 										{{ Form::close() }}
 									</td>
 									<td><a href="{{$user->path()}}/questions">suallar</a></td>
-									<td>{!!$user->created_at!!}</td>
-									<td>{!!$user->updated_at!!}</td>
+									@if ($user->confirm == 0)
+									<td></td>
+									<td>
+										{{ Form::open(['method' => 'PATCH', 'url' => 'user/'.$user->id.'/status']) }}
+										{{ Form::submit('Confirm', ['class' => 'btn-xs btn-danger']) }}
+										{{ Form::close() }}
+									</td>
+									@else
+									<td>
+										{{ Form::open(['method' => 'PATCH', 'url' => 'user/'.$user->id.'/status' ]) }}
+										{{ Form::submit('Disable', ['class' => 'btn-xs btn-success']) }}
+										{{ Form::close() }}
+									</td>
+									<td></td>
+									@endif
+									<td>{!!$user->created_at->diffForHumans()!!}</td>
+									<td>{!!$user->updated_at->diffForHumans()!!}</td>
 									<td>{{ Form::open(['method' => 'DELETE', 'url' => 'user/'.$user->id]) }}
 										{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
 									{{ Form::close() }}</td>
@@ -106,8 +123,15 @@
 										@endunless
 									</td>
 									<td><a href="{{$user->path()}}/questions">suallar</a></td>
-									<td>{!!$user->created_at!!}</td>
-									<td>{!!$user->updated_at!!}</td>
+									@if ($user->confirmed == 0)
+									<td></td>
+									<td></td>
+									@else
+									<td></td>
+									<td></td>
+									@endif
+									<td>{!!$user->created_at->diffForHumans()!!}</td>
+									<td>{!!$user->updated_at->diffForHumans()!!}</td>
 									<td>
 										@unless ($user->role == 'muellim')
 										{{ Form::open(['method' => 'DELETE', 'url' => 'user/'.$user->id]) }}
@@ -137,8 +161,15 @@
 									<td>{!!$user->email!!}</td>
 									<td>{!!$user->role!!}</td>
 									<td><a href="{{$user->path()}}/questions">suallar</a></td>
-									<td>{!!$user->created_at!!}</td>
-									<td>{!!$user->updated_at!!}</td>
+									@if ($user->confirmed == 0)
+									<td></td>
+									<td></td>
+									@else
+									<td></td>
+									<td></td>	
+									@endif
+									<td>{!!$user->created_at->diffForHumans()!!}</td>
+									<td>{!!$user->updated_at->diffForHumans()!!}</td>
 									<td>
 										@unless ($user->role == "mentor")
 										{{ Form::open(['method' => 'DELETE', 'url' => 'user/'.$user->id]) }}

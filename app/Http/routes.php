@@ -62,6 +62,8 @@ Route::get('/user/{user}/questions', 'VerifyController@questions');
 Route::get('/{user}/ques/{question}/edit', 'VerifyController@questionsEdit');
 Route::patch('/user/{user}/question/{question}', 'VerifyController@questionsUpdate');
 Route::delete('/question/{question}', 'VerifyController@quesDel');
+Route::patch('/user/{user}/status', 'VerifyController@status');
+
 
 
 
