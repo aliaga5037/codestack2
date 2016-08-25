@@ -90,25 +90,6 @@
                                 <button class="btn btn-primary" type="submit">Axtar</button>
                             </span>
                         </form>
-                        <table class="table table-hover">
-                            {{-- search output here --}}
-                        </table>
-                        {{-- <script>
-                        $("#search").on("keyup", function () {
-                        $value = $(this).val();
-                        if ($(this).val() === "") {
-                        $(this).val().reset();
-                        }
-                        $.ajax({
-                        type: 'get',
-                        url: '{{ URL::to('search') }}',
-                        data: {'search': $value},
-                        success: function (data) {
-                        $('.table').html(data);
-                        }
-                        })
-                        })
-                        </script> --}}
                     </div>
                     @yield('sual')
                     @endif
@@ -147,7 +128,8 @@
         {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
         <script>
-             var config = {
+        jQuery(document).ready(function($) {
+                         var config = {
                         extraPlugins: 'codesnippet',
                         height: 200
                     };
@@ -164,6 +146,8 @@
             //'del ins'
             }
             );
+        });
+
         
         </script>
         @yield('ck')

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appnew')
 
 @section('content')
 <div class="container">
@@ -45,7 +45,7 @@
                                 <span class="pull-right">
                                     @if (Auth::user()->id == $answer->user_id)
                                     <div style="margin-top:-25px"></div>
-                                    {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger dlt' ,'data' => $answer->id]) }}
+                                    {{-- {{ Form::submit('Delete', ['class' => 'btn-xs btn-danger dlt' ,'data' => $answer->id]) }} --}}
 
                                     @endif
                                 </span>
@@ -68,6 +68,128 @@
             </div>
         </div>
     </div>
+
+
+
+<section id="answerQuestion" class="container">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="borderLeft4px42548F">
+
+
+      <div class="row ">
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+          <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="word-wrap:break-word;"">
+              <h4>
+            {!! $question->ques_title !!}
+              </h4>
+          </div>
+        </div>
+
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="profile pull-right">
+                <a href="#">
+                  <img src="/uploads/avatar/{{ $question->user->avatar }}" alt="" class=""/>
+                  <p class="text-muted"><span>@</span>{{$question->user_username}}</p>
+                </a>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12" style="word-wrap:break-word;">
+          <p class="">
+            {!! $question->sual !!}
+          </p>
+        </div>
+      </div>
+
+      <div class="row categoryLine">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <a href="#" class="text-muted">
+            <p class="category text-muted">Kateqoriya:{{$question->category->cat_name}}</p>
+          </a>
+          <span class="text-muted">{{$question->created_at->diffForHumans()}}</span>
+          <span class="fa fa-clock-o text-muted" aria-hidden="true"></span>
+        </div>
+      </div>
+
+
+      <div class="row comment">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <form class="form-group" action="index.html" method="post">
+            <form class="form-group" method="post" action="/">
+              <input class="commentInput" type="text" name="comment" value="" placeholder="Cavab yaz...">
+            </form>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="row allComments">
+
+         @foreach($question->answers as $answer)
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="media">
+
+            <a class="media-left" href="#">
+              <img class="media-object" src="/uploads/avatar/{{ $answer->user->avatar }}" alt="">
+            </a>
+
+            <div class="media-body">
+
+              <p class="pull-left">
+               <span>@</span>{{$answer->user_username}}
+              </p>
+                
+              <span class="dropdown pull-right">
+                  <span class="glyphicon glyphicon-option-horizontal pull-right dropdown-toggle" aria-hidden="true" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></span>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  
+                    <li class="dlt" data="{{$answer->id}}"></li>
+                    <li>
+                                    
+                                    {{ Form::submit('Delete', ['class' => 'dlt form-control' ,'data' => $answer->id]) }}
+
+                                </li>
+                   
+                  </ul>
+              </span>     
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {!!$answer->cavab!!} 
+                <hr>
+              </div>
+
+            </div>
+          </div>
+        </div>
+ @endforeach
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
 @section('ck')
 <script>
 editor.on( 'change', function( evt ) {
@@ -123,6 +245,7 @@ jQuery(document).ready(function($) {
 
         $( "body" ).on( "click", ".dlt",function (argument) {
         var id=$(this).attr('data')
+        
         $.ajaxSetup({
             headers:{
                 'X-CSRF-TOKEN':'{{ csrf_token() }}'
@@ -136,7 +259,7 @@ jQuery(document).ready(function($) {
             data: {param1: 'value1'},
         })
 
-        $(this).parent().parent().remove()
+        $(this).parent().parent().parent().parent().parent().remove()
         
     })
 

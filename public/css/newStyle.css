@@ -1,0 +1,159 @@
+#navbar {
+  background: white;
+  border-top: 4px solid #42548F;
+  color: #42548F; }
+  #navbar .logo {
+    display: inline-block; }
+    #navbar .logo img {
+      height: 45px;
+      margin: 5px 25px; }
+  #navbar #navbarCollapse .navbar-nav {
+    margin: 0 -14px 0 0; }
+    #navbar #navbarCollapse .navbar-nav li {
+      border-left: 1px solid #E7E7E7; }
+      #navbar #navbarCollapse .navbar-nav li a {
+        padding: 18px; }
+    #navbar #navbarCollapse .navbar-nav .rightLine {
+      border-right: 1px solid #E7E7E7; }
+  #navbar #navbarCollapse .searchForm {
+    display: inline-block; }
+    #navbar #navbarCollapse .searchForm input {
+      border: none;
+      outline: none;
+      padding: 18px 0 20px 18px;
+      display: inline-block;
+      height: 56px; }
+
+#allQuestionsHome .panel {
+  border-left: 4px solid #42548F;
+  margin-top: 30px; }
+  #allQuestionsHome .panel a {
+    text-decoration: none; }
+  #allQuestionsHome .panel .panel-body .questionMiddle span, #allQuestionsHome .panel .panel-body .questionMiddle i {
+    font-size: 11px;
+    color: #DDD;
+    margin: 2px; }
+  #allQuestionsHome .panel .panel-body .questionBottom a {
+    color: #DDD;
+    margin: 0 5px; }
+    #allQuestionsHome .panel .panel-body .questionBottom a:hover {
+      color: #222; }
+  #allQuestionsHome .panel .panel-body .questionBottom .share {
+    padding: 3px;
+    float: left; }
+  #allQuestionsHome .panel .panel-body .questionBottom .category {
+    border: 1px solid #DDD;
+    padding: 3px;
+    float: left; }
+    #allQuestionsHome .panel .panel-body .questionBottom .category:hover {
+      border: 1px solid #222; }
+  #allQuestionsHome .panel .panel-body .questionBottom .user img {
+    height: 25px; }
+  #allQuestionsHome .panel .panel-body .time {
+    color: #DDD;
+    margin: 0 5px;
+    font-size: 11px; }
+    #allQuestionsHome .panel .panel-body .time:hover {
+      color: #222; }
+
+#myProfile {
+  padding: 20px; }
+  #myProfile .container {
+    display: flex;
+    flex-flow: column; }
+    #myProfile .container div {
+      margin: 5px auto;
+      text-align: center; }
+    #myProfile .container h3, #myProfile .container p {
+      margin: 5px auto; }
+  #myProfile img {
+    width: 200px; }
+  #myProfile button {
+    background: #42548F;
+    border-radius: none;
+    color: white; }
+
+#Modal .buttons .btn-primary {
+  background: #42548F; }
+
+.searchForm input {
+  border: none;
+  outline: none;
+  padding: 18px 0 20px 18px;
+  height: 56px; }
+
+#myQuestions h3 {
+  margin-bottom: 30px;
+  color: #42548F; }
+#myQuestions .panel {
+  padding: 20px 10px; }
+#myQuestions .settings h6 {
+  float: left; }
+#myQuestions .settings .category {
+  border: 1px solid #DDD;
+  padding: 3px;
+  float: left;
+  margin-right: 10px; }
+  #myQuestions .settings .category:hover {
+    color: #222;
+    border: 1px solid #222;
+    text-decoration: none; }
+#myQuestions .settings a {
+  color: #DDD; }
+  #myQuestions .settings a:hover {
+    color: #222; }
+  #myQuestions .settings a span {
+    float: right;
+    margin: 0 5px; }
+
+#askQuestion .panel {
+  padding: 20px; }
+  #askQuestion .panel .panel-heading {
+    margin: 10px; }
+  #askQuestion .panel textarea, #askQuestion .panel .input-group {
+    width: 100%; }
+  #askQuestion .panel input, #askQuestion .panel textarea {
+    margin-top: 10px;
+    outline: none; }
+  #askQuestion .panel .buttons input {
+    border-radius: 0;
+    float: right; }
+
+#answerQuestion {
+  margin-top: 50px; }
+  #answerQuestion a {
+    text-decoration: none; }
+  #answerQuestion .profile {
+    padding: 10px; }
+    #answerQuestion .profile img {
+      height: 30px; }
+    #answerQuestion .profile img, #answerQuestion .profile p {
+      float: right;
+      margin-right: 5px; }
+    #answerQuestion .profile p {
+      font-size: 15px; }
+  #answerQuestion .categoryLine .category {
+    border: 1px solid #DDD;
+    padding: 3px;
+    float: left; }
+  #answerQuestion .categoryLine span {
+    float: right;
+    margin: 2px; }
+  #answerQuestion .comment .commentInput {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: 100%;
+    outline: none !important;
+    border-bottom: 1px solid #42548F;
+    margin: 30px 0; }
+  #answerQuestion .allComments img {
+    height: 20px; }
+  #answerQuestion .media-body span {
+    font-size: 11px; }
+
+.borderLeft4px42548F {
+  border-left: 4px solid #42548F;
+  padding-left: 25px; }
+
+/*# sourceMappingURL=style.css.map */
