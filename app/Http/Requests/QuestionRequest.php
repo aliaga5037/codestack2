@@ -24,7 +24,7 @@ class QuestionRequest extends Request
     public function rules()
     {
         return [
-            'quest_title' => 'required|min:10|max:150',
+            'quest_title' => 'required|min:5|max:80',
             'sual' => 'required|min:10',
         ];
     }

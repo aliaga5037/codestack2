@@ -1,8 +1,5 @@
-@extends('layouts.app')
-@section('content'){{--
-@if (count($errors) > 0)
-{{ dd($errors) }}
-@endif --}}
+@extends('layouts.appnew')
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">

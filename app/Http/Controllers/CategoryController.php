@@ -85,7 +85,7 @@ class CategoryController extends Controller
         $ques = Question::where('category_id',$id)->orderBy('id','desc')->paginate(5);
         //$result = DB::select('call nots(?)',array(Auth::user()->id));
             $idd=Auth::user()->id;
-           $result=nots($idd);
+             $result=nots($idd);
        
 
         return view('cat.cat',compact('catName','ques','result'));
