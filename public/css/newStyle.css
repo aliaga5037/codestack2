@@ -50,11 +50,9 @@
   #allQuestionsHome .panel .panel-body .questionBottom .user img {
     height: 25px; }
   #allQuestionsHome .panel .panel-body .time {
-    color: #DDD;
+    color: #222;
     margin: 0 5px;
     font-size: 11px; }
-    #allQuestionsHome .panel .panel-body .time:hover {
-      color: #222; }
 
 #myProfile {
   padding: 20px; }

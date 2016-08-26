@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
-
+use App\Question;
 use App\Http\Requests;
 use DB;
 
@@ -16,9 +16,11 @@ class SearchController extends Controller
        $this->validate($request, [
            'search' => 'required'
        ]);
-       $questions = DB::table('questions')
-           ->where('ques_title', 'LIKE', '%' . $request->search . '%')
-           ->orWhere('user_username', 'LIKE', '%' . $request->search . '%')->get();
+       $questions = Question::where('ques_title', 'LIKE', '%' . $request->search . '%')
+           ->orWhere('user_username', 'LIKE', '%' . $request->search . '%')
+           ->orderBy('id','desc')
+           ->paginate(10);
+          
        return view('search', compact('questions'));
    }
 
