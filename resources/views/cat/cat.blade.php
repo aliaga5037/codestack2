@@ -53,7 +53,7 @@
                       <div class="panel panel-default" >
                       @endif
                     <div class="panel-body">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 questionMiddle">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 questionMiddle" style="word-wrap:break-word;">
                             <p>
                                 <a  href="/{{$question->category->id}}/question/{{$question->id}}" style="color:gray">
                                 {!!$question->ques_title!!}

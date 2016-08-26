@@ -44,7 +44,9 @@ class HomeController extends Controller
 
     public function update_avatar(Request $request)
     {
+        return $request->avatar;
         if ($request->hasFile('avatar')) {
+             
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalName();
             Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatar/'.$filename));
