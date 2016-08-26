@@ -110,7 +110,7 @@
           <a href="#" class="text-muted">
             <p class="category text-muted">Kateqoriya:{{$question->category->cat_name}}</p>
           </a>
-          <span class="text-muted">{{$question->created_at->diffForHumans()}}</span>
+          <span>{{$question->created_at->diffForHumans()}}</span>
           <span class="fa fa-clock-o text-muted" aria-hidden="true"></span>
         </div>
       </div>
@@ -193,7 +193,9 @@
 @section('ck')
 <script>
 editor.on( 'change', function( evt ) {
-$('#cavab').val(evt.editor.getData())
+  ed = evt.editor.getData()
+  console.log(ed)
+$('#cavab').val(ed)
 });
 
 jQuery(document).ready(function($) {

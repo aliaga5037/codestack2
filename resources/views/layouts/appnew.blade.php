@@ -49,10 +49,10 @@
                 </ul>
               </li>
             </ul>
-            <form class="searchForm" action="/searchresult" method="get" role="search">
+            <form class="searchForm" action="/searchresult" method="get" role="search" style="    border-right: 1px solid #e7e7e7;">
               {{ csrf_field() }}
               <input type="text" name="search" id='search' placeholder="Axtar...">
-              <button class="glyphicon glyphicon-search" type="submit"></button>
+              <button class="glyphicon glyphicon-search" type="submit" style="border:0;background: transparent;"></button>
             </form>
             <ul class="nav navbar-nav navbar-right">
               <li>
@@ -85,7 +85,7 @@
         
           var config = {
           extraPlugins: 'codesnippet',
-          height: 200
+          height: 200,
           };
           var editor = CKEDITOR.replace( 'editor1',config ,
           {

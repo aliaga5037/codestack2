@@ -30,6 +30,12 @@ CKEDITOR.editorConfig = function( config ) {
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript';
+	config.fillEmptyBlocks = false;
+	config.ignoreEmptyParagraph = true;
+	config.forcePasteAsPlainText = true;
+	 config.enterMode = CKEDITOR.ENTER_BR;
+	 config.entities = false;
+  config.basicEntities = false;
 
 	// Set the most common block elements.
 	config.format_tags = 'p;h1;h2;h3;pre';
