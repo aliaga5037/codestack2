@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->string('status');
             $table->string('user_username');
+            $table->string('ques_title');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });

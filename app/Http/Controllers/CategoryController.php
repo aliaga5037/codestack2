@@ -86,7 +86,7 @@ class CategoryController extends Controller
         //$result = DB::select('call nots(?)',array(Auth::user()->id));
             $idd=Auth::user()->id;
              $result=nots($idd);
-       
+        
 
         return view('cat.cat',compact('catName','ques','result'));
     }

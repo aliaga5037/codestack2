@@ -41,4 +41,5 @@ editor.on( 'change', function( evt ) {
 editor.config.height = 100;
 </script>
 @stop
+
 @stop
