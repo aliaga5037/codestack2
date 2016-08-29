@@ -1,46 +1,47 @@
-@extends('layouts.app')
+@extends('layouts.appnew')
 
 @section('content')
 
-<div class="col-md-10">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="content-box-large">
-				<div class="panel-heading">
-					<div class="panel-title">Suallar</div>
-				</div>
-				<div class="panel-body">
-					<table class="table table-bordered">
-						
-					<thead>
-						<tr>
-							<th>{{$user->username}}</th>
-							<th>Redaktə et</th>
-							<th>Sil</th>
-						</tr>
-					</thead>
-					<tbody>
-						
-							@foreach($questions as $question)
-							<tr>
-							<td> <span><a href="/{{$question->category->id}}/question/{{$question->id}}">{!!$question->ques_title!!}</a></span> </td>
-							<td><a href="/{{$user->id}}/question/{{$question->id}}/edit" class="btn btn-primary">Redaktə et</a></td>
-							<td>
-							{{-- {{ Form::open(['method' => 'DELETE', 'url' => $user->id.'/question/'.$question->id]) }} --}}
-								{{ Form::submit('Sil', ['class' => 'btn btn-danger pr_ques_delete' ,'data' => $question->id]) }}
-								{{-- {{ Form::close() }} --}}
-							
-							</td>
-							</tr>
-							@endforeach
-						
-					</tbody>
-			</table>
-		</div>
-	</div>
-</div>
-</div>
-</div>
+
+ <section id="myQuestions" class="container">
+ <h3 class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">My Questions</h3>
+ 	@foreach($questions as $question)
+      <div class="panel panel-default col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <a href="/{{$question->category->id}}/question/{{$question->id}}"> {!!$question->ques_title!!}</a>
+        </p>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 settings">
+          <a href="#" class="category">
+             {{$question->category->cat_name}}
+          </a>
+          <a href="#">
+            <h6>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            {{$question->created_at->diffForHumans()}}
+            </h6>
+          </a>
+          <a href="#">
+            <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+          </a>
+          <a href="#">
+            <span class="glyphicon glyphicon-trash pr_ques_delete" aria-hidden="true"></span>
+          </a>
+          <a href="/{{$user->id}}/question/{{$question->id}}/edit">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+@endforeach
+    </section>
+
+
+
+
+
+
+
+
+
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$('.pr_ques_delete').click(function(event) {
@@ -58,7 +59,7 @@
             data: {param1: 'value1'},
         })
 
-        $(this).parent().parent().remove()
+        $(this).parent().parent().parent().remove()
 		});
 	});
 </script>

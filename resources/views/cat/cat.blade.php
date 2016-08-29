@@ -41,6 +41,8 @@
  --}}
 
               <section id="allQuestionsHome" class="container">
+               <h3 class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2"
+               style="line-height:46px;border-bottom:1px solid #eee;    margin-bottom: -13px;">Kateqoriya:{{$catName->cat_name}}</h3>
                 <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 @foreach($ques as $question)
                  @if ($question->status == 'muellim')

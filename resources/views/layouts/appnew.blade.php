@@ -49,11 +49,13 @@
                 </ul>
               </li>
             </ul>
+            <div class="col-md-6 col-sm-4" >
             <form class="searchForm" action="/searchresult" method="get" role="search" style="    border-right: 1px solid #e7e7e7;">
               {{ csrf_field() }}
               <input type="text" name="search" id='search' placeholder="Axtar...">
               <button class="glyphicon glyphicon-search" type="submit" style="border:0;background: transparent;"></button>
             </form>
+            </div>
             <ul class="nav navbar-nav navbar-right">
               <li>
               @yield('sual')                
