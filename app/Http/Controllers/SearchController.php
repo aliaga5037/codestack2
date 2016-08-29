@@ -26,20 +26,13 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
+
         if ($request->ajax())
         {
-            $output = "";
-            $questions = DB::table('questions')->where('sual', 'LIKE', '%' . $request->search . '%')
-                                                ->orWhere('user_username', 'LIKE', '%' . $request->search . '%')->get();
-            if ($questions)
-            {
-                foreach($questions as $key => $question) {
-                    $output =   "<tr>" .
-                                    "<td><a href='/$question->category_id/question/$question->id'>" . $question->sual . "</a></td>" .
-                                "</tr>";
-                }
-            }
-            return Response($output);
+            
+          $questions = Question::where('ques_title', 'LIKE', '%' . $request->data . '%')->get();
+            
+          return response()->json(array('res'=> $questions), 200);
         }
     }
 }

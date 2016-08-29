@@ -59,7 +59,7 @@
                 </div>
                 @endforeach
                 <div class="text-center">
-                    {!!$questions->render()!!}
+                    {!!$allQuestionsHome->render()!!}
                 </div>
             </div>
         </section>

@@ -21,25 +21,6 @@ class ActivationService
         $this->activationRepo = $activationRepo;
     }
 
-    public function sendActivationMail($user)
-    {
-
-        if ($user->activated || !$this->shouldSend($user)) {
-            return;
-        }
-
-        $token = $this->activationRepo->createActivation($user);
-
-        $link = route('user.activate', $token);
-        $message = sprintf('Activate account <a href="%s">%s</a>', $link, $link);
-
-        $this->mailer->raw($message, function (Message $m) use ($user) {
-            $m->to($user->email)->subject('Activation mail');
-        });
-
-
-    }
-
     public function activateUser($token)
     {
         $activation = $this->activationRepo->getActivationByToken($token);
@@ -59,6 +40,27 @@ class ActivationService
         return $user;
 
     }
+
+    public function sendActivationMail($user)
+    {
+
+        if ($user->activated || !$this->shouldSend($user)) {
+            return;
+        }
+
+        $token = $this->activationRepo->createActivation($user);
+
+        $link = route('user.activate', $token);
+        $message = sprintf('Activate account <a href="%s">%s</a>', $link, $link);
+
+        $this->mailer->raw($message, function (Message $m) use ($user) {
+            $m->to($user->email)->subject('Activation mail');
+        });
+
+
+    }
+
+    
 
     private function shouldSend($user)
     {

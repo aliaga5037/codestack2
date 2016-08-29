@@ -18,6 +18,7 @@
     <!-- endoff old head directory -->
   </head>
   <body>
+       
     <section id="navbar" role="navigation" class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -80,7 +81,12 @@
               </div>
             </div>
           </section>
+          {{-- <div class="blur"></div>
+          <div class="searchResult"></div> --}}
+    
+
           @yield('content')
+          
           <script type="text/javascript">
         
           var config = {
@@ -103,6 +109,37 @@
           
         
           </script>
+
+          <script>
+            jQuery(document).ready(function($) {
+
+               $('#search').click(function() {
+                $('.blur').css('height', $('body').height()).fadeIn();
+               });
+
+               $('.blur').click(function() {
+                 $(this).fadeOut();
+               });
+
+              $('#search').keyup(function() {
+                $a = $('#search').val();
+                $.ajax({
+                  url: '/search',
+                  type: 'GET',
+                  dataType: 'JSON',
+                  data: {data: $a},
+                })
+                .done(function() {
+                  
+                })
+                .fail(function() {
+                  console.log("error");
+                })
+                
+              });
+            });
+          </script>
           @yield('ck')
+
         </body>
       </html>

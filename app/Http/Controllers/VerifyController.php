@@ -53,7 +53,7 @@
 			// $result = DB::select('call nots(?)',array(Auth::user()->id));
 
 				$idd=Auth::user()->id;
-           $result=nots($idd);
+           		$result=nots($idd);
 			
 			return view('admin.notify',compact('result'));
 			
