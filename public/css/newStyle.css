@@ -165,4 +165,13 @@
     display: none;
   }
 
+  .searchResult{
+    width: 500px;
+    position: absolute;
+    left: 468px;
+    background: white;
+    z-index: 999;
+    display: none;
+  }
+
 /*# sourceMappingURL=style.css.map */

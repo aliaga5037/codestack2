@@ -44,7 +44,7 @@ class HomeController extends Controller
 
     public function update_avatar(Request $request)
     {
-        return $request->avatar;
+       
         if ($request->hasFile('avatar')) {
              
             $avatar = $request->file('avatar');
@@ -129,7 +129,7 @@ class HomeController extends Controller
 
     public function showques($id)
     {
-         $user = User::findOrFail($id);
+        $user = User::findOrFail($id);
         $questions = Question::where('user_id',$id)->orderBy('id','desc')->get();
         return view('auth.userques',compact('questions','user'));
     }

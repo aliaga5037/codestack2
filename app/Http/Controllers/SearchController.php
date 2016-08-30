@@ -30,9 +30,16 @@ class SearchController extends Controller
         if ($request->ajax())
         {
             
-          $questions = Question::where('ques_title', 'LIKE', '%' . $request->data . '%')->get();
-            
-          return response()->json(array('res'=> $questions), 200);
+          $ques = Question::where('ques_title', 'LIKE', '%' . $request->data . '%')
+          ->orWhere('sual', 'LIKE', '%' . $request->data . '%')
+          ->orderBy('id','desc')
+          ->with('category','user')
+          ->limit(5)
+          ->get();
+         
+         
+          // return response()->json(array('res'=> $questions), 200);
+          return view('s',compact('ques'));
         }
     }
 }
